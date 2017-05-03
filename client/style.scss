@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sidepane {
+  height: 100vh;
+  @media (max-width: 992px) {
+    height: auto;
+  }
+  background: #E8E8EA;
+
+  .form {
+    margin: 35px 0;
+
+    input {
+      padding: 15px;
+      height: auto;
+    }
+
+    button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 15px;
+    }
+  }
+
+  .assets {
+    width: 100%;
+  }
+}
+
+#assetText {
+  font-size: 24px;
+}
+
+.assets {
+  .text, .image {
+    margin: 10px 0;
+  }
+
+  .text {
+    button, input {
+      width: 100%;
+      padding: 15px;
+      border: none;
+    }
+  }
+
+  .image {
+    ul {
+      &:after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      li {
+        width: 50px;
+        cursor: pointer;
+        @media (max-width: 992px) {
+          width: 100px;
+        }
+        padding: 5px;
+        float: left;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+}
+
+.canvas {
+  padding: 10px;
+  .block {
+    position: relative;
+    width: 100%; height: 100vh;
+    @media (max-width: 992px) {
+      height: 700px;
+    }
+    border: 1px solid;
+    box-shadow: 0px 0px 5px black;
+
+    img {
+      // position: absolute;
+      width: 165px;
+      height: auto;
+      cursor: grabbing;
+    }
+  }
+}
+
+.item {
+  border: 1px solid transparent;
+  position: absolute;
+
+  &.selected {
+    border-color: blue;
+  }
+}
+
+.preview-img {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.text-oncanvas {
+  display: inline-block;
+  cursor: grabbing;
+  font-size: 5rem;
+}
+
+.bin {
+  pointer-events: none;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 200px !important;
+  opacity: 0.2;
+  transition: ease-out 1s;
+  z-index: 100;
+}
+
+.bin.on {
+  opacity: 1;
+}
+
+.asset-manager {
+  position: fixed;
+  width: 80%;
+  height: 80%;
+  padding: 10px;
+  z-index: 500;
+  background: #FFF;
+  left: 0; right: 0; top: 0; bottom: 0;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+  ul {
+    &:after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+    li {
+      width: 70px;
+      float: left;
+      img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-close {
+    font-size: 3rem;
+    font-weight: 700;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+}
+
+.preview-manager {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  height: 300px;
+  button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  img {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+  }
+
+  > div {
+    height: 100%;
+    > div {
+      height: 100%;
+    }
+  }
+}
+
+.big-preview {
+  position: fixed;
+  width: 90%;
+  height: 90%;
+  background: #FFF;
+  padding: 10px;
+  z-index: 550;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+
+  &-close {
+    position: absolute;
+    font-size: 4rem;
+    font-weight: 700;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  img {
+    position: absolute;
+    top: 0;left: 0;right: 0;bottom: 0;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    object-fit: contain;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 250;
+}
