@@ -189,6 +189,7 @@ const Assets = (props) => {
           {props.inputText ? ( // on input text mode, input text will rendered, otherwise, the add text button
             <form onSubmit={props.addText}>
               <input type="text" id="text" placeholder="Add Text ..." />
+              <button onClick={props.addText} class="btn btn-primary">submit</button>
             </form>
           ) : (
             <button id="addText" onClick={props.handleText} class="btn btn-primary">Add Text</button>
