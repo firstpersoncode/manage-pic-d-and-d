@@ -1,8 +1,8 @@
 {
   "name": "simple-react",
   "version": "1.0.0",
-  "description": "setup simple react",
-  "main": "main.js",
+  "description": "piktojstest",
+  "main": "server/index.js",
   "scripts": {
     "test": "babel-node node_modules/.bin/jasmine",
     "start": "node server",
