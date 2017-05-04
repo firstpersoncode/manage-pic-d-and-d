@@ -16,7 +16,7 @@ export function uploadImageRequest(file) {
 
   // send data to server
   return (dispatch) => {
-    axios.post('http://localhost:7000/uploads/', form)
+    axios.post('http://localhost:8000/uploads/', form)
      .then(({ data }) => {
        dispatch(uploadImage(data));
        console.log(form)
@@ -36,7 +36,7 @@ export function imageList(data) {
 }
 export function fetchImages() {
  return (dispatch) => {
-   axios.get('http://localhost:7000/images/')
+   axios.get('http://localhost:8000/images/')
     .then(({ data }) => {
       dispatch(imageList(data))
     })
@@ -55,7 +55,7 @@ export function imageListDeleted(data) {
 }
 export function deleteImageList(image) {
  return (dispatch) => {
-   axios.delete('http://localhost:7000/images?delete='+image)
+   axios.delete('http://localhost:8000/images?delete='+image)
     .then(({ data }) => {
       dispatch(imageListDeleted(data))
     })

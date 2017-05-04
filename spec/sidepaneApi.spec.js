@@ -41,7 +41,7 @@ describe(reports.uploadImageApiTest.describe, () => {
     // form.append('upload', testFile);
 
     const testAPI = () => {
-      return axios.post('http://localhost:7000/uploads/', { FormData: { upload: testFile } })
+      return axios.post('http://localhost:8000/uploads/', { FormData: { upload: testFile } })
       .then(({ data }) => {
         return data
       })
@@ -54,10 +54,10 @@ describe(reports.uploadImageApiTest.describe, () => {
     expect(typeof testAPI()).toEqual('object');
 
     it('dispatch the action', () => {
-      const action = uploadImage({ file: "http://localhost:7000/images/uploads-1493813614798.jpg" });
+      const action = uploadImage({ file: "http://localhost:8000/images/uploads-1493813614798.jpg" });
       expect(action).toEqual({
         type: 'UPLOAD_IMAGE_ASSETS',
-        data: { file: "http://localhost:7000/images/uploads-1493813614798.jpg" },
+        data: { file: "http://localhost:8000/images/uploads-1493813614798.jpg" },
       })
     });
 
@@ -65,7 +65,7 @@ describe(reports.uploadImageApiTest.describe, () => {
     console.log('==========================================================================');
     console.log('\ndescribe: ' + reports.uploadImageApiTest.describe);
     console.log('\nit: ' + reports.uploadImageApiTest.it);
-    console.log('\nresult: ' + JSON.stringify(testAPI()), 'action: ' + JSON.stringify(uploadImage({ file: "http://localhost:7000/images/uploads-1493813614798.jpg" })));
+    console.log('\nresult: ' + JSON.stringify(testAPI()), 'action: ' + JSON.stringify(uploadImage({ file: "http://localhost:8000/images/uploads-1493813614798.jpg" })));
     console.log('=========================================================================\n\n\n\n');
   });
 })
@@ -76,7 +76,7 @@ describe(reports.fetchImageListApiTest.describe, () => {
   it(reports.fetchImageListApiTest.it, () => {
 
     const testAPI = () => {
-      return axios.get('http://localhost:7000/images/')
+      return axios.get('http://localhost:8000/images/')
       .then(({ data }) => {
         return data
       })
@@ -127,7 +127,7 @@ describe(reports.routesForSidePane.describe, () => {
     console.log('test DELETE /images')
     request(server)
       .delete('/images')
-      .send({ delete: "http://localhost:7000/images/uploads-1493813614798.jpg" })
+      .send({ delete: "http://localhost:8000/images/uploads-1493813614798.jpg" })
       .expect("Content-type",/json/)
       .expect(200, done)
     // Log report

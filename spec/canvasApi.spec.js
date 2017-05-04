@@ -34,9 +34,9 @@ const reports = {
 describe(reports.addImageToCanvasApiTest.describe, () => {
   it(reports.addImageToCanvasApiTest.it, () => {
     // check if server response and we receive data
-    const testItem = { id: Date.now(), image: "http://localhost:7000/images/uploads-1462948498227.png" };
+    const testItem = { id: Date.now(), image: "http://localhost:8000/images/uploads-1462948498227.png" };
     const testAPI = () => {
-      return axios.post('http://localhost:7000/canvas-state/text/', testItem)
+      return axios.post('http://localhost:8000/canvas-state/text/', testItem)
       .then(({ data }) => {
         return data;
       })
@@ -50,7 +50,7 @@ describe(reports.addImageToCanvasApiTest.describe, () => {
     it('dispatch the action', () => {
       expect(imageListInCanvas(testItem)).toEqual({
         type: "ADD_IMAGE_TO_CANVAS",
-        data: { id: Date.now(), image: "http://localhost:7000/images/uploads-1462948498227.png" }
+        data: { id: Date.now(), image: "http://localhost:8000/images/uploads-1462948498227.png" }
       });
     })
 
@@ -68,7 +68,7 @@ describe(reports.addTextCanvasApiTest.describe, () => {
   it(reports.addTextCanvasApiTest.it, () => {
     const testItem = { id: Date.now(), text: "test dummy" };
     const testAPI = () => {
-      return axios.post('http://localhost:7000/canvas-state/text/', testItem)
+      return axios.post('http://localhost:8000/canvas-state/text/', testItem)
       .then(({ data }) => {
         return data;
       })
@@ -92,7 +92,7 @@ describe(reports.addTextCanvasApiTest.describe, () => {
 describe(reports.fetchImageApiTest.describe, () => {
   it(reports.fetchImageApiTest.it, () => {
     const testAPI = () => {
-      return axios.get('http://localhost:7000/canvas-state/image/')
+      return axios.get('http://localhost:8000/canvas-state/image/')
       .then(({ data }) => {
         return data;
       })
@@ -107,8 +107,8 @@ describe(reports.fetchImageApiTest.describe, () => {
       expect(fetchImagesToCanvas()).toEqual({
         type: "FETCH_CANVAS_STATE/images",
         data: [
-          { id: Date.now(), image: "http://localhost:7000/images/uploads-1462948498227.png" },
-          { id: Date.now(), image: "http://localhost:7000/images/uploads-1462948498227.png" }
+          { id: Date.now(), image: "http://localhost:8000/images/uploads-1462948498227.png" },
+          { id: Date.now(), image: "http://localhost:8000/images/uploads-1462948498227.png" }
         ]
       });
     })
@@ -139,7 +139,7 @@ describe(reports.routesForCanvas.describe, () => {
     console.log('test POST canvas-state/image')
     request(server)
       .post('/canvas-state/image')
-      .send({ id: Date.now(), image: "http://localhost:7000/images/uploads-1493813614798.jpg" })
+      .send({ id: Date.now(), image: "http://localhost:8000/images/uploads-1493813614798.jpg" })
       .expect("Content-type",/json/)
       .expect(200, done)
     // Log report

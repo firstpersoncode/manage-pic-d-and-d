@@ -11,7 +11,7 @@ export function imageListInCanvas(data) {
 }
 export function addImageToCanvas(payload) {
   return (dispatch) => {
-    axios.post('http://localhost:7000/canvas-state/image/', payload)
+    axios.post('http://localhost:8000/canvas-state/image/', payload)
     .then(({ data }) => {
       dispatch(imageListInCanvas(data));
     })
@@ -31,7 +31,7 @@ export function fetchImagesToCanvas(data) {
 }
 export function imageCanvasState() {
   return (dispatch) => {
-    axios.get('http://localhost:7000/canvas-state/image/')
+    axios.get('http://localhost:8000/canvas-state/image/')
     .then(({ data }) => {
       dispatch(fetchImagesToCanvas(data))
     })
@@ -52,7 +52,7 @@ export function textListInCanvas(data) {
 }
 export function addTextToCanvas(payload) {
   return (dispatch) => {
-    axios.post('http://localhost:7000/canvas-state/text/', { item: { ...payload } })
+    axios.post('http://localhost:8000/canvas-state/text/', { item: { ...payload } })
     .then(({ data }) => {
       dispatch(textListInCanvas(data));
     })
@@ -71,7 +71,7 @@ export function fetchTextsToCanvas(data) {
 }
 export function textCanvasState() {
   return (dispatch) => {
-    axios.get('http://localhost:7000/canvas-state/text/')
+    axios.get('http://localhost:8000/canvas-state/text/')
     .then(({ data }) => {
       dispatch(fetchTextsToCanvas(data))
     })
@@ -92,7 +92,7 @@ export function deletedImageInList(data) {
 }
 export function deleteImage(image) {
   return (dispatch) => {
-    axios.delete('http://localhost:7000/canvas-state/image?id='+image.id)
+    axios.delete('http://localhost:8000/canvas-state/image?id='+image.id)
     .then(({ data }) => {
       dispatch(deletedImageInList(data))
     })
@@ -113,7 +113,7 @@ export function deletedTextInList(data) {
 }
 export function deleteText(text) {
   return (dispatch) => {
-    axios.delete('http://localhost:7000/canvas-state/text?id='+text.id)
+    axios.delete('http://localhost:8000/canvas-state/text?id='+text.id)
     .then(({ data }) => {
       dispatch(deletedTextInList(data))
     })
