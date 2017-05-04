@@ -40,7 +40,7 @@ app.use('/canvas-state', canvasState);
 app.get('/', index);
 
 
-const server = app.listen( 7000, () => {
+const server = app.listen( 8000, () => {
   console.log( 'server started. listening to 8000' );
 });
 
