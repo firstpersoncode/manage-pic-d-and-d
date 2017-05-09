@@ -1,4 +1,5 @@
-# piktojstest
+# Manage pictures (Drag and Drop)
+Just a sample app for managing picture with draggable functionality using ReactJS and nodeJS
 
 ## Get Started:
 
@@ -33,6 +34,3 @@
 - **ExpressJS** for server side
 - Unit testing with **Jasmine**
 - **webpack** for compiling and bundle files
-
-
-*email me if there are problems or issues*
